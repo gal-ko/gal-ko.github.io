@@ -5,7 +5,7 @@ A nostalgic 90s-style keygen interface paying homage to the warez scene era. Fea
 ## Project Structure
 
 ```
-site/
+gal-ko/
 ├── index.html           # Main HTML file
 ├── assets/              # Media files
 │   └── audio/
@@ -16,7 +16,8 @@ site/
 │   │   └── base.css        # Base styles and resets
 │   ├── layout/
 │   │   ├── window.css      # Windows 95 window chrome
-│   │   └── components.css  # Component styles
+│   │   ├── components.css  # Component styles
+│   │   └── age-gate.css    # Age gate overlay styles
 │   └── effects/
 │       ├── animations.css  # CSS animations
 │       └── responsive.css  # Mobile responsive styles
@@ -27,7 +28,7 @@ site/
 │   ├── config/
 │   │   ├── constants.js    # App strings and configuration
 │   │   ├── themes.js       # Theme color definitions
-│   │   └── ascii-art.js    # ASCII art logos for all groups
+│   │   └── groups.js       # Group data with ASCII art logos
 │   ├── state/
 │   │   ├── themeManager.js # Theme switching logic
 │   │   └── groupRotator.js # Group switching and credits
@@ -36,6 +37,7 @@ site/
 │   │   ├── starfield.js        # Starfield background animation
 │   │   ├── musicPlayer.js      # Music player controller
 │   │   ├── serialGenerator.js  # Serial key generator
+│   │   ├── ageGate.js          # Age verification gate
 │   │   └── keyboard.js         # Keyboard shortcuts
 │   └── debug/
 │       └── logger.js       # Console logger utility
@@ -44,6 +46,7 @@ site/
 
 ## Features
 
+- **Age Gate**: Nostalgic age verification dialog with Windows 95 styling
 - **Multiple Warez Groups**: Rotate through 5 legendary groups (ORION, DEViANCE, RAZOR 1911, SKIDROW, FAiRLiGHT)
 - **Authentic ASCII Art**: DOS Rebel font style logos for each group
 - **Warez Scene Credits**: Authentic roles (CRACKER, SUPPLIER, COURIER, GFX) with unique members per group
@@ -115,7 +118,6 @@ site/
 **constants.js**
 - `APP_STRINGS`: All visible text and UI strings
 - `APP_CONFIG`: Configuration values (volumes, speeds, padding, spacing)
-- `GROUPS`: Array of 5 warez groups with name, slogan, ASCII reference, and unique members
 - Centralized string management for easy customization
 
 **themes.js**
@@ -123,10 +125,10 @@ site/
 - `DEFAULT_THEME`: Default theme name
 - Available themes: Midnight Aurora, Forest Trails, Tropical Paradise, Desert Sunset, Phoenix Fire, Deep Ocean, Peach Blossom, Neon Nights
 
-**ascii-art.js**
-- `ASCII_ART`: Object containing ASCII logos for all groups
+**groups.js**
+- `GROUPS`: Array of 5 warez groups with name, slogan, ASCII art, and unique members
+- Each group includes complete ASCII logo using DOS Rebel font style with ░ characters
 - Logos: ORION, DEVIANCE, RAZOR_1911, SKIDROW, FAIRLIGHT
-- All logos use DOS Rebel font style with ░ characters
 
 ### State Management
 **themeManager.js** (`ThemeManager`)
@@ -162,6 +164,12 @@ site/
 - Cycling animation effect
 - Key counter tracking
 
+**ageGate.js** (`AgeGate`)
+- Age verification overlay on first visit
+- Stores verification state in localStorage
+- Windows 95-style dialog with theme integration
+- Correct/incorrect answer handling
+
 **keyboard.js** (`KeyboardController`)
 - Handle keyboard shortcuts
 - Flash button visual feedback with theme colors
@@ -191,14 +199,15 @@ The project is organized into logical modules that can be modified independently
 
 **Styles:**
 - Theme colors: `styles/core/variables.css` and `scripts/config/themes.js`
-- Layout: `styles/layout/window.css` and `styles/layout/components.css`
+- Layout: `styles/layout/window.css`, `styles/layout/components.css`, and `styles/layout/age-gate.css`
 - Effects: `styles/effects/animations.css`
 
 **Scripts:**
-- Add new groups: `scripts/config/constants.js` (GROUPS array) and `scripts/config/ascii-art.js`
+- Add new groups: `scripts/config/groups.js` (includes both group data and ASCII art)
 - Add new themes: `scripts/config/themes.js`
 - Adjust starfield: `scripts/ui/starfield.js`
 - Modify keyboard controls: `scripts/ui/keyboard.js`
+- Modify age gate: `scripts/ui/ageGate.js`
 - Main initialization: `scripts/core/main.js`
 
 **Configuration:**

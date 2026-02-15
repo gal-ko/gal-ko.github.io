@@ -2,6 +2,11 @@
  * Age Gate Overlay
  */
 
+/* Prevent scrolling when age gate is shown */
+body.no-scroll {
+    overflow: hidden;
+}
+
 .age-gate-overlay {
     position: fixed;
     top: 0;
@@ -32,31 +37,36 @@
 .age-gate-content {
     padding: 20px 15px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .age-gate-intro {
     font-size: 11px;
     color: var(--color-accent);
-    margin-bottom: 12px;
+    margin-bottom: 4px;
     line-height: 1.4;
     text-transform: uppercase;
     letter-spacing: 1px;
     opacity: 0.8;
-}
-
-.age-gate-emoji {
-    font-size: 60px;
-    line-height: 1;
-    margin-bottom: 12px;
+    order: 1;
 }
 
 .age-gate-question {
     font-size: 11px;
     color: var(--color-accent);
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     line-height: 1.4;
     text-transform: uppercase;
     letter-spacing: 1px;
+    order: 2;
+}
+
+.age-gate-emoji {
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: 20px;
+    order: 3;
 }
 
 .age-gate-buttons {
@@ -64,6 +74,7 @@
     flex-direction: row;
     gap: 10px;
     justify-content: center;
+    order: 4;
 }
 
 .age-gate-buttons .btn-primary,

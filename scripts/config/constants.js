@@ -37,7 +37,7 @@ const APP_STRINGS = {
     // Age Gate
     AGE_GATE_TITLE: 'AGE VERIFICATION',
     AGE_GATE_INTRO: 'Before we move on,',
-    AGE_GATE_QUESTION: 'What is this?',
+    AGE_GATE_QUESTION: 'Can you identify this object?',
     AGE_GATE_EMOJI: '💾',
     AGE_GATE_CORRECT: 'A floppy disk!<br>This baby can hold up to 1.44MB.',
     AGE_GATE_WRONG: "That's the save icon. boomer.",

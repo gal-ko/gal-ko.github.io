@@ -25,13 +25,17 @@
     }
 
     .subtitle,
-    .serial-box,
     .status-item,
-    .credits-box,
     .attribution-text,
     .ascii-border-top,
     .ascii-decoration {
         font-size: var(--mobile-text-size);
+    }
+
+    /* Keep serial-box and credits-box at normal size on tablet */
+    .serial-box,
+    .credits-box {
+        font-size: var(--text-size);
     }
 
     .subtitle {
@@ -58,6 +62,7 @@
     body {
         padding: 10px;
         font-size: var(--mobile-text-size);
+        font-weight: 600;
     }
 
     .container {
@@ -67,22 +72,73 @@
     .logo {
         font-size: clamp(2px, 1.2vw, 7.2px);
         margin-bottom: 6px;
+        font-weight: 600;
     }
 
     .title-bar {
         font-size: var(--mobile-text-size);
+        font-weight: 600;
+    }
+
+    .title-bar-button {
+        width: 24px;
+        height: 22px;
+    }
+
+    .title-bar-button .btn-icon {
+        font-size: 18px;
+        font-weight: bold;
     }
 
     .subtitle {
         letter-spacing: 1px;
+        font-weight: 600;
     }
 
     .serial-box {
         letter-spacing: 1px;
+        font-weight: 600;
     }
 
     /* Maintain 2-column grid on mobile for status bar */
     .status-bar {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Mobile text improvements */
+    .credits-box,
+    .disclaimer,
+    .status-item,
+    .btn-primary,
+    .btn-secondary {
+        font-weight: 600;
+    }
+
+    /* Enlarge serial key and credits on mobile */
+    .serial-box {
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+
+    .credits-box {
+        font-size: 12px;
+    }
+
+    /* Age gate mobile improvements */
+    .age-gate-intro,
+    .age-gate-question {
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .age-gate-emoji {
+        font-size: 70px;
+    }
+
+    .age-gate-buttons .btn-primary,
+    .age-gate-buttons .btn-secondary {
+        font-size: 12px;
+        font-weight: 600;
+        padding: 12px 14px;
     }
 }

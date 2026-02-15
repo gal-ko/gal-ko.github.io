@@ -22,6 +22,11 @@ class AgeGate {
         DOMUtils.setText('ageGateQuestion', APP_STRINGS.AGE_GATE_QUESTION);
         DOMUtils.setHTML('ageCorrect', APP_STRINGS.AGE_GATE_CORRECT);
         DOMUtils.setHTML('ageWrong', APP_STRINGS.AGE_GATE_WRONG);
+
+        // Prevent scrolling when age gate is shown
+        if (!this.overlay.classList.contains('hidden')) {
+            document.body.classList.add('no-scroll');
+        }
     }
 
     setupEventListeners() {
@@ -44,6 +49,7 @@ class AgeGate {
     handleCorrect() {
         // Knows what a floppy disk is = old enough, let them in
         this.overlay.classList.add('hidden');
+        document.body.classList.remove('no-scroll');
 
         // Start music automatically
         if (this.musicPlayer && this.musicPlayer.isLoaded) {

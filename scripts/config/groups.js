@@ -63,7 +63,7 @@ const GROUPS = [
     },
     {
         name: 'SKiDROW',
-        slogan: 'We are not criminals. We are outlaws.',
+        slogan: 'We are not criminals. Just outlaws.',
         ascii: `
   █████████  █████   ████ █████ ██████████   ███████████      ███████    █████   ███   █████
  ███░░░░░███░░███   ███░ ░░███ ░░███░░░░███ ░░███░░░░░███   ███░░░░░███ ░░███   ░███  ░░███
