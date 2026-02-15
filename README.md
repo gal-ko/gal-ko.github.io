@@ -2,6 +2,8 @@
 
 A nostalgic 90s-style keygen interface paying homage to the warez scene era. Features Windows 95 aesthetic, chiptune music, starfield animation, and authentic ASCII art.
 
+<img width="50%" alt="image" src="https://github.com/user-attachments/assets/516aadce-141a-4c4e-8b0e-c82780be59f9" />
+
 ## Project Structure
 
 ```
