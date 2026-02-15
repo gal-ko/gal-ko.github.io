@@ -48,7 +48,7 @@ class UIBuilder {
         let disclaimer = APP_STRINGS.DISCLAIMER;
         disclaimer = disclaimer.replace('warez scene', `<a href="${APP_STRINGS.WAREZ_SCENE_URL}" target="_blank">warez scene</a>`);
 
-        const credits = `Music: "${APP_STRINGS.MUSIC_TRACK}" by <a href="${APP_STRINGS.URL_ARTIST}" target="_blank">${APP_STRINGS.MUSIC_ARTIST}</a> (<a href="${APP_STRINGS.URL_LICENSE}" target="_blank">${APP_STRINGS.MUSIC_LICENSE}</a>).<br>ASCII Art: <a href="${APP_STRINGS.DOS_REBEL_URL}" target="_blank">${APP_STRINGS.FONT_NAME}</a> by ${APP_STRINGS.FONT_AUTHOR}.<br>Color themes by <a href="${APP_STRINGS.COLOR_HUNT_URL}" target="_blank">Color Hunt</a>.<br>Generated serial numbers are totally random.<br>No software was harmed in the making of this website.`;
+        const credits = `Music: "${APP_STRINGS.MUSIC_TRACK}" by <a href="${APP_STRINGS.URL_ARTIST}" target="_blank">${APP_STRINGS.MUSIC_ARTIST}</a> (<a href="${APP_STRINGS.URL_LICENSE}" target="_blank">${APP_STRINGS.MUSIC_LICENSE}</a>).<br>ASCII Art: <a href="${APP_STRINGS.DOS_REBEL_URL}" target="_blank">${APP_STRINGS.FONT_NAME}</a> by ${APP_STRINGS.FONT_AUTHOR}.<br>Color themes by <a href="${APP_STRINGS.COLOR_HUNT_URL}" target="_blank">Color Hunt</a>.<br>Generated serial numbers are <a href="${APP_STRINGS.GITHUB_URL}" target="_blank">totally random</a>.<br>No software was harmed in the making of this website.`;
 
         return disclaimer + '<br>' + credits;
     }

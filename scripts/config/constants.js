@@ -48,6 +48,7 @@ const APP_STRINGS = {
 
     // URLs
     LINKEDIN_URL: 'https://www.linkedin.com/in/galkoren',
+    GITHUB_URL: 'https://github.com/gal-ko/gal-ko.github.io',
 
     // Attributions
     ATTRIBUTIONS_TITLE: 'Credits',
