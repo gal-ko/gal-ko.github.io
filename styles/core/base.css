@@ -1,0 +1,34 @@
+/**
+ * Base styles and resets
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--color-background);
+    color: var(--color-accent);
+    font-family: 'Perfect DOS VGA 437', 'DOSFont', 'Terminal', 'Courier', monospace;
+    font-size: var(--text-size, 12px);
+    line-height: 1.2;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}

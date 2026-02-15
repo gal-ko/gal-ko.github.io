@@ -1,0 +1,355 @@
+/**
+ * Component styles
+ */
+
+/* Grid system classes */
+.grid-full {
+    grid-column: span 4; /* 100% width */
+}
+
+.grid-half {
+    grid-column: span 2; /* 50% width */
+}
+
+.grid-quarter {
+    grid-column: span 1; /* 25% width */
+}
+
+/* ASCII Borders */
+.ascii-border-top {
+    color: var(--color-primary);
+    font-size: var(--text-size);
+    line-height: 1;
+    white-space: pre;
+    overflow: hidden;
+}
+
+.ascii-decoration {
+    color: var(--color-secondary);
+    font-size: var(--text-size);
+    line-height: 1;
+    white-space: pre;
+    overflow: hidden;
+}
+
+/* Logo */
+.logo {
+    font-size: clamp(3px, 1.2vw, 8.5px);
+    line-height: 0.95;
+    white-space: pre;
+    color: var(--color-text);
+    text-shadow:
+        2px 2px 0px var(--color-secondary),
+        0 0 20px var(--color-primary),
+        0 0 40px var(--color-primary);
+    margin-bottom: 10px;
+    animation: colorShift 4s infinite;
+    font-family: 'Perfect DOS VGA 437', 'DOSFont', 'Terminal', 'Courier', monospace;
+    text-align: left;
+    justify-self: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: var(--text-size);
+    color: var(--color-tertiary);
+    letter-spacing: 3px;
+    animation: pulse 2s infinite;
+}
+
+/* Main Section */
+.main-section {
+    border: 2px solid var(--color-primary);
+    padding: var(--card-padding);
+    background: var(--bg-primary);
+    box-shadow: 0 0 20px var(--glow-primary);
+
+    /* Internal layout for buttons */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--grid-gap);
+}
+
+/* Serial Number */
+.serial-box {
+    background: var(--color-background);
+    border: 2px solid var(--color-accent);
+    padding: 12px;
+    font-size: var(--text-size);
+    letter-spacing: 4px;
+    color: var(--color-accent);
+    font-family: 'Perfect DOS VGA 437', 'DOSFont', 'Terminal', 'Courier', monospace;
+    box-shadow: 0 0 15px var(--glow-accent);
+}
+
+/* Base button styles */
+.btn-primary,
+.btn-secondary {
+    border: none;
+    padding: 10px 15px;
+    font-size: var(--text-size);
+    font-family: 'Perfect DOS VGA 437', 'DOSFont', 'Terminal', 'Courier', monospace;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    color: var(--color-background);
+}
+
+/* Primary button (Generate) */
+.btn-primary {
+    background: var(--color-primary);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.15);
+}
+
+.btn-primary:focus {
+    outline: none;
+}
+
+.btn-primary:active,
+.btn-primary.keyboard-active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/* Secondary button (Sound, Group, Theme) */
+.btn-secondary {
+    background: var(--color-tertiary);
+}
+
+.btn-secondary:hover {
+    filter: brightness(1.15);
+}
+
+.btn-secondary:focus {
+    outline: none;
+}
+
+.btn-secondary:active,
+.btn-secondary.keyboard-active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/* Credits */
+.credits {
+    border: 2px solid var(--color-secondary);
+    padding: var(--card-padding);
+    background: var(--bg-secondary);
+    box-shadow: 0 0 20px var(--glow-secondary);
+    overflow: hidden;
+}
+
+.credits-title {
+    color: var(--color-tertiary);
+    font-size: var(--text-size);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.credits-box {
+    color: var(--color-accent);
+    font-size: var(--text-size);
+    line-height: 1.6;
+    text-transform: none;
+    overflow: hidden;
+}
+
+.credits-line {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+}
+
+.credits-label {
+    flex-shrink: 0;
+}
+
+.credits-dots {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.credits-value {
+    flex-shrink: 0;
+}
+
+/* Controls */
+.controls {
+    border: 2px solid var(--color-tertiary);
+    padding: var(--card-padding);
+    background: var(--bg-tertiary);
+    box-shadow: 0 0 20px var(--glow-tertiary);
+    overflow: hidden;
+}
+
+.controls-title {
+    color: var(--color-tertiary);
+    font-size: var(--text-size);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.controls-box {
+    color: var(--color-accent);
+    font-size: var(--text-size);
+    line-height: 1.6;
+    text-transform: none;
+    overflow: hidden;
+}
+
+.controls-line {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+}
+
+.controls-label {
+    flex-shrink: 0;
+}
+
+.controls-dots {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.controls-value {
+    flex-shrink: 0;
+}
+
+/* Music Attribution */
+.music-attribution {
+    border: 2px solid var(--color-tertiary);
+    padding: var(--card-padding);
+    background: var(--bg-tertiary);
+    box-shadow: 0 0 20px var(--glow-tertiary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.attribution-title {
+    color: var(--color-tertiary);
+    font-size: var(--text-size);
+    margin-bottom: 10px;
+}
+
+.attribution-text {
+    color: var(--color-accent);
+    font-size: var(--text-size);
+    line-height: 1.6;
+    text-align: center;
+    overflow: hidden;
+}
+
+.attribution-text a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.attribution-text a:hover {
+    color: var(--color-text);
+    text-decoration: underline;
+}
+
+/* Status Bar */
+.status-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--grid-gap);
+}
+
+.status-item {
+    background: transparent;
+    border: 1px solid var(--color-accent);
+    padding: 8px 15px;
+    font-size: var(--text-size);
+    color: var(--color-accent);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+}
+
+/* Only clickable status items should have hover and transition */
+button.status-item {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button.status-item:hover {
+    filter: brightness(1.15);
+}
+
+button.status-item:active,
+button.status-item.keyboard-active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+.status-label {
+    font-size: var(--text-size);
+    opacity: 0.7;
+    text-transform: uppercase;
+}
+
+.status-value {
+    font-size: var(--text-size);
+    text-transform: none;
+}
+
+.status-value a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.status-value a:hover {
+    color: var(--color-text);
+    text-decoration: underline;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* Group name should not be uppercase */
+#windowTitle,
+#groupTitle,
+#groupToggle .status-value {
+    text-transform: none;
+}
+
+/* Theme name should be uppercase */
+#themeToggle .status-value {
+    text-transform: uppercase;
+}
+
+/* Disclaimer */
+.disclaimer {
+    padding: 10px;
+    font-size: var(--text-size);
+    color: var(--color-accent);
+    text-align: center;
+    opacity: 0.7;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.disclaimer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.disclaimer a:hover {
+    color: var(--color-text);
+    text-decoration: underline;
+}

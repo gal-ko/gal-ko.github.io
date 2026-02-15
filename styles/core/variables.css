@@ -1,0 +1,38 @@
+/**
+ * CSS Custom Properties (Variables)
+ * Theme colors are set dynamically by the ThemeManager
+ */
+
+:root {
+    /* Main colors - Default: Sub-Zero (matches DEFAULT_THEME in themes.js) */
+    --color-primary: #00bfff;
+    --color-secondary: #48d1cc;
+    --color-tertiary: #f0e68c;
+    --color-accent: #87cefa;
+    --color-background: #0a0f1a;
+    --color-text: #e6f3ff;
+
+    /* Glow effects */
+    --glow-primary: rgba(0, 191, 255, 0.5);
+    --glow-secondary: rgba(72, 209, 204, 0.5);
+    --glow-tertiary: rgba(240, 230, 140, 0.5);
+    --glow-accent: rgba(135, 206, 250, 0.5);
+
+    /* Backgrounds with transparency */
+    --bg-primary: rgba(10, 20, 35, 0.9);
+    --bg-secondary: rgba(10, 25, 40, 0.9);
+    --bg-tertiary: rgba(15, 30, 45, 0.9);
+
+    /* Title bar */
+    --titlebar-start: #1e3a5f;
+    --titlebar-end: #2e5a8f;
+
+    /* Typography */
+    --text-size: 12px;
+    --mobile-text-size: 10px;
+
+    /* Spacing */
+    --card-padding: 16px;
+    --card-spacing: 16px;
+    --grid-gap: 16px;
+}

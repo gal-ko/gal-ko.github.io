@@ -1,0 +1,43 @@
+/**
+ * CSS Animations
+ */
+
+@keyframes colorShift {
+    0%, 100% {
+        color: var(--color-text);
+        text-shadow: 2px 2px 0px var(--color-secondary), 0 0 20px var(--color-primary);
+    }
+    33% {
+        color: var(--color-primary);
+        text-shadow: 2px 2px 0px var(--color-tertiary), 0 0 20px var(--color-secondary);
+    }
+    66% {
+        color: var(--color-secondary);
+        text-shadow: 2px 2px 0px var(--color-primary), 0 0 20px var(--color-tertiary);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        filter: brightness(1) drop-shadow(-40px 0 15px rgba(255, 255, 255, calc(var(--shimmer-alpha, 0.2) * 0.75)));
+    }
+    50% {
+        filter: brightness(1.15) drop-shadow(0px 0 20px rgba(255, 255, 255, var(--shimmer-alpha, 0.2)));
+    }
+    100% {
+        filter: brightness(1) drop-shadow(40px 0 15px rgba(255, 255, 255, calc(var(--shimmer-alpha, 0.2) * 0.75)));
+    }
+}
+
+.logo.ripple {
+    animation: shimmer var(--shimmer-duration, 0.25s) ease-in-out;
+}

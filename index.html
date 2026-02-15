@@ -1,19 +1,179 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>Gal Koren</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keygen</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <!-- Prevent flash of unstyled content -->
     <style>
-      body {
-        font-family: system-ui, sans-serif;
-        max-width: 700px;
-        margin: 60px auto;
-        padding: 20px;
-      }
+        body {
+            opacity: 0;
+            transition: opacity 0.1s ease-in;
+        }
+        body.loaded {
+            opacity: 1;
+        }
     </style>
-  </head>
-  <body>
-    <h1>Gal Koren</h1>
-    <p>Welcome to my personal site.</p>
-  </body>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/core/variables.css">
+    <link rel="stylesheet" href="styles/core/base.css">
+    <link rel="stylesheet" href="styles/layout/window.css">
+    <link rel="stylesheet" href="styles/layout/components.css">
+    <link rel="stylesheet" href="styles/layout/age-gate.css">
+    <link rel="stylesheet" href="styles/effects/animations.css">
+    <link rel="stylesheet" href="styles/effects/responsive.css">
+
+    <!-- Apply saved theme immediately to prevent flash -->
+    <script src="scripts/core/utils.js"></script>
+    <script src="scripts/config/themes.js"></script>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('keygenTheme');
+            const themeName = savedTheme && THEMES[savedTheme] ? savedTheme : DEFAULT_THEME;
+            const theme = THEMES[themeName];
+
+            if (theme) {
+                const root = document.documentElement;
+                const colors = theme.colors;
+
+                DOMUtils.setCSSVars(root, {
+                    '--color-primary': colors.primary,
+                    '--color-secondary': colors.secondary,
+                    '--color-tertiary': colors.tertiary,
+                    '--color-accent': colors.accent,
+                    '--color-background': colors.background,
+                    '--color-text': colors.text,
+                    '--glow-primary': colors.primaryGlow,
+                    '--glow-secondary': colors.secondaryGlow,
+                    '--glow-tertiary': colors.tertiaryGlow,
+                    '--glow-accent': colors.accentGlow,
+                    '--bg-primary': colors.primaryBg,
+                    '--bg-secondary': colors.secondaryBg,
+                    '--bg-tertiary': colors.tertiaryBg,
+                    '--titlebar-start': colors.titleBarStart,
+                    '--titlebar-end': colors.titleBarEnd
+                });
+            }
+
+            // Show body after theme is applied
+            document.addEventListener('DOMContentLoaded', function() {
+                document.body.classList.add('loaded');
+            });
+        })();
+    </script>
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+
+    <audio id="keygenMusic" loop>
+        <source src="assets/audio/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Age Gate Overlay -->
+    <div class="age-gate-overlay" id="ageGateOverlay">
+        <div class="age-gate-dialog">
+            <div class="title-bar">
+                <div class="title-bar-text">
+                    <div class="title-bar-icon">⚠</div>
+                    <span id="ageGateTitle"></span>
+                </div>
+                <div class="title-bar-controls">
+                    <button class="title-bar-button" id="ageGateClose" title="Close">
+                        <span class="btn-icon">×</span>
+                    </button>
+                </div>
+            </div>
+            <div class="age-gate-content">
+                <div class="age-gate-intro" id="ageGateIntro"></div>
+                <div class="age-gate-emoji" id="ageGateEmoji"></div>
+                <div class="age-gate-question" id="ageGateQuestion"></div>
+                <div class="age-gate-buttons">
+                    <button class="btn-primary" id="ageCorrect"></button>
+                    <button class="btn-secondary" id="ageWrong"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="keygen-window">
+        <div class="title-bar">
+            <div class="title-bar-text">
+                <div class="title-bar-icon">⚡</div>
+                <span id="windowTitle"></span>
+            </div>
+            <div class="title-bar-controls">
+                <button class="title-bar-button" title="Minimize">
+                    <span class="btn-icon">−</span>
+                </button>
+                <button class="title-bar-button" title="Maximize">
+                    <span class="btn-icon">□</span>
+                </button>
+                <button class="title-bar-button" title="Close">
+                    <span class="btn-icon">×</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="ascii-border-top grid-full" id="borderTop"></div>
+
+            <div class="logo grid-full" id="logo"></div>
+
+            <div class="subtitle grid-full" id="subtitle"></div>
+
+            <div class="ascii-decoration grid-full" id="decoration1"></div>
+
+            <div class="main-section grid-full">
+                <div class="serial-box grid-full" id="serialBox"></div>
+
+                <button class="btn-primary grid-half" id="generateBtn"></button>
+                <button class="btn-secondary grid-half" id="musicToggle"></button>
+            </div>
+
+            <div class="credits grid-half">
+                <div class="credits-title" id="groupTitle"></div>
+                <div class="credits-box" id="groupCredits"></div>
+            </div>
+
+            <div class="controls grid-half">
+                <div class="controls-title">═══ Keyboard Controls ═══</div>
+                <div class="controls-box" id="controlsBox"></div>
+            </div>
+
+            <div class="status-bar grid-full">
+                <div class="status-item">
+                    <div class="status-label">Crafted by</div>
+                    <div class="status-value" id="createdBy"></div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">Keys Generated</div>
+                    <div class="status-value" id="keyCount">0</div>
+                </div>
+                <button class="btn-secondary" id="groupToggle"></button>
+                <button class="btn-secondary" id="themeToggle"></button>
+            </div>
+
+            <div class="ascii-border-top grid-full" id="borderBottom"></div>
+
+            <div class="disclaimer grid-full" id="disclaimer"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="scripts/config/groups.js"></script>
+    <script src="scripts/config/constants.js"></script>
+    <script src="scripts/state/themeManager.js"></script>
+    <script src="scripts/state/groupRotator.js"></script>
+    <script src="scripts/ui/uiBuilder.js"></script>
+    <script src="scripts/ui/starfield.js"></script>
+    <script src="scripts/ui/musicPlayer.js"></script>
+    <script src="scripts/ui/serialGenerator.js"></script>
+    <script src="scripts/ui/ageGate.js"></script>
+    <script src="scripts/ui/keyboard.js"></script>
+    <script src="scripts/debug/logger.js"></script>
+    <script src="scripts/core/main.js"></script>
+</body>
 </html>

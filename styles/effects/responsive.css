@@ -1,0 +1,88 @@
+/**
+ * Responsive media queries
+ */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: clamp(3px, 1.44vw, 8.5px);
+        margin-bottom: 8px;
+    }
+
+    /* Hide keyboard controls on tablet/mobile */
+    .controls {
+        display: none;
+    }
+
+    /* Make credits card full width when controls are hidden */
+    .credits {
+        grid-column: span 4;
+    }
+
+    .subtitle,
+    .serial-box,
+    .status-item,
+    .credits-box,
+    .attribution-text,
+    .ascii-border-top,
+    .ascii-decoration {
+        font-size: var(--mobile-text-size);
+    }
+
+    .subtitle {
+        letter-spacing: 2px;
+    }
+
+    .ascii-border-top {
+        white-space: nowrap;
+    }
+
+    .serial-box {
+        letter-spacing: 2px;
+        padding: 8px;
+    }
+
+    /* Mobile: 2x2 grid for status bar */
+    .status-bar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+        font-size: var(--mobile-text-size);
+    }
+
+    .container {
+        gap: 8px;
+    }
+
+    .logo {
+        font-size: clamp(2px, 1.2vw, 7.2px);
+        margin-bottom: 6px;
+    }
+
+    .title-bar {
+        font-size: var(--mobile-text-size);
+    }
+
+    .subtitle {
+        letter-spacing: 1px;
+    }
+
+    .serial-box {
+        letter-spacing: 1px;
+    }
+
+    /* Maintain 2-column grid on mobile for status bar */
+    .status-bar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
