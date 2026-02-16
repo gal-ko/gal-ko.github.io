@@ -22,7 +22,7 @@ class ThemeManager {
         localStorage.setItem('keygenTheme', themeName);
     }
 
-    applyTheme(themeName) {
+    applyTheme(themeName, method = null) {
         const theme = THEMES[themeName];
         if (!theme) {
             console.error(`Theme ${themeName} not found`);
@@ -54,6 +54,11 @@ class ThemeManager {
         this.currentTheme = themeName;
         this.saveTheme(themeName);
         this.updateThemeButton();
+
+        // Track analytics event (only if method is provided, skip on initial load)
+        if (method) {
+            Analytics.trackThemeChange(theme.name, method);
+        }
     }
 
     getNextTheme() {
@@ -63,15 +68,15 @@ class ThemeManager {
         return themeKeys[nextIndex];
     }
 
-    switchTheme() {
+    switchTheme(method = 'button') {
         const nextTheme = this.getNextTheme();
-        this.applyTheme(nextTheme);
+        this.applyTheme(nextTheme, method);
     }
 
     setupThemeButton() {
         DOMUtils.setupToggleButton(
             this.themeButtonId,
-            () => this.switchTheme(),
+            () => this.switchTheme('button'),
             () => this.updateThemeButton()
         );
     }

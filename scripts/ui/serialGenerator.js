@@ -13,7 +13,7 @@ class SerialGenerator {
     }
 
     setupEventListeners() {
-        this.generateButton.addEventListener('click', () => this.generate());
+        this.generateButton.addEventListener('click', () => this.generate('button'));
     }
 
     generateSerial() {
@@ -36,12 +36,15 @@ class SerialGenerator {
         return SERIAL_CHARS.charAt(Math.floor(Math.random() * SERIAL_CHARS.length));
     }
 
-    generate() {
+    generate(method = 'button') {
         const { SERIAL_SEGMENTS, SERIAL_SEGMENT_LENGTH, GENERATION_SPEED, CHAR_LOCK_DELAY } = APP_CONFIG;
 
         // Increment counter immediately when generate is clicked
         this.keyCount++;
         this.counterElement.textContent = this.keyCount;
+
+        // Track analytics event
+        Analytics.trackGenerateKey(method, this.keyCount);
 
         // Generate the final serial
         const finalSerial = this.generateSerial();

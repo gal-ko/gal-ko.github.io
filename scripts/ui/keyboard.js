@@ -36,7 +36,7 @@ class KeyboardController {
 
             switch(event.key) {
                 case ' ': // Space - Generate serial key
-                    this.serialGenerator.generate();
+                    this.serialGenerator.generate('keyboard');
                     this.flashButton('generateBtn');
                     break;
 
@@ -56,12 +56,12 @@ class KeyboardController {
                     break;
 
                 case 'ArrowRight': // Right - Next theme
-                    this.themeManager.switchTheme();
+                    this.themeManager.switchTheme('keyboard');
                     this.flashButton('themeToggle');
                     break;
 
                 case 'Shift': // Shift - Toggle music
-                    this.musicPlayer.toggle();
+                    this.musicPlayer.toggle('keyboard');
                     this.flashButton('musicToggle');
                     break;
             }
@@ -73,18 +73,18 @@ class KeyboardController {
         const totalGroups = this.groupRotator.groups.length;
         const previousIndex = (currentIndex - 1 + totalGroups) % totalGroups;
         this.groupRotator.currentIndex = previousIndex;
-        this.groupRotator.displayGroup(previousIndex);
+        this.groupRotator.displayGroup(previousIndex, 'keyboard');
         this.groupRotator.saveGroup(previousIndex);
     }
 
     nextGroup() {
-        this.groupRotator.next();
+        this.groupRotator.next('keyboard');
     }
 
     previousTheme() {
         const themeKeys = Object.keys(THEMES);
         const currentIndex = themeKeys.indexOf(this.themeManager.currentTheme);
         const previousIndex = (currentIndex - 1 + themeKeys.length) % themeKeys.length;
-        this.themeManager.applyTheme(themeKeys[previousIndex]);
+        this.themeManager.applyTheme(themeKeys[previousIndex], 'keyboard');
     }
 }

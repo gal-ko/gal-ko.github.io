@@ -37,7 +37,7 @@ class GroupRotator {
         return APP_STRINGS.SUBTITLE_TEMPLATE.replace('{slogan}', slogan);
     }
 
-    displayGroup(index) {
+    displayGroup(index, method = null) {
         const group = this.groups[index];
 
         this.logoElement.textContent = group.ascii;
@@ -55,6 +55,11 @@ class GroupRotator {
         this.updateGroupCredits(group.members);
 
         this.updateGroupButton();
+
+        // Track analytics event (only if method is provided, skip on initial load)
+        if (method) {
+            Analytics.trackGroupChange(group.name, method);
+        }
     }
 
     updateGroupCredits(members) {
@@ -76,16 +81,16 @@ class GroupRotator {
         return (this.currentIndex + 1) % this.groups.length;
     }
 
-    next() {
+    next(method = 'button') {
         this.currentIndex = this.getNextIndex();
-        this.displayGroup(this.currentIndex);
+        this.displayGroup(this.currentIndex, method);
         this.saveGroup(this.currentIndex);
     }
 
     setupGroupButton() {
         DOMUtils.setupToggleButton(
             this.groupButtonId,
-            () => this.next(),
+            () => this.next('button'),
             () => this.updateGroupButton()
         );
     }

@@ -19,7 +19,7 @@ class MusicPlayer {
     }
 
     setupEventListeners() {
-        this.toggleButton.addEventListener('click', () => this.toggle());
+        this.toggleButton.addEventListener('click', () => this.toggle('button'));
 
         // Listen for when audio is ready to play
         this.audio.addEventListener('canplay', () => {
@@ -37,25 +37,31 @@ class MusicPlayer {
         });
     }
 
-    toggle() {
+    toggle(method = 'button') {
         if (this.isPlaying) {
-            this.pause();
+            this.pause(method);
         } else {
-            this.play();
+            this.play(method);
         }
     }
 
-    play() {
+    play(method = 'button') {
         this.audio.play().catch(() => {
             console.log('Play failed');
         });
         this.toggleButton.textContent = APP_STRINGS.MUSIC_ON;
         this.isPlaying = true;
+
+        // Track analytics event
+        Analytics.trackMusicToggle('play', method);
     }
 
-    pause() {
+    pause(method = 'button') {
         this.audio.pause();
         this.toggleButton.textContent = APP_STRINGS.MUSIC_OFF;
         this.isPlaying = false;
+
+        // Track analytics event
+        Analytics.trackMusicToggle('pause', method);
     }
 }

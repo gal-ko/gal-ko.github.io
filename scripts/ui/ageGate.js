@@ -47,17 +47,23 @@ class AgeGate {
     }
 
     handleCorrect() {
+        // Track analytics event
+        Analytics.trackAgeGate('correct');
+
         // Knows what a floppy disk is = old enough, let them in
         this.overlay.classList.add('hidden');
         document.body.classList.remove('no-scroll');
 
         // Start music automatically
         if (this.musicPlayer && this.musicPlayer.isLoaded) {
-            this.musicPlayer.play();
+            this.musicPlayer.play('auto');
         }
     }
 
     handleWrong() {
+        // Track analytics event
+        Analytics.trackAgeGate('wrong');
+
         // Thinks it's just a save icon = too young, redirect to TikTok
         window.location.href = 'https://www.tiktok.com';
     }

@@ -31,6 +31,20 @@ class UIBuilder {
 
         // Disclaimer
         DOMUtils.setHTML('disclaimer', this.buildDisclaimer());
+
+        // Setup link tracking
+        this.setupLinkTracking();
+    }
+
+    static setupLinkTracking() {
+        // Track all external links
+        document.addEventListener('click', (event) => {
+            const link = event.target.closest('a');
+            if (link && link.href && link.target === '_blank') {
+                const linkText = link.textContent || link.innerText || 'unknown';
+                Analytics.trackExternalLink(link.href, linkText);
+            }
+        });
     }
 
     static buildControls() {
